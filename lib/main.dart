@@ -1,4 +1,5 @@
-import 'package:droan_insurence/screens/login_scree.dart';
+import 'package:droan_insurence/routes.dart';
+import 'package:droan_insurence/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +11,17 @@ class DroanInsurenceApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      title: 'Doran Insurence',
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: Colors.black87),
+          bodyText2: TextStyle(color: Colors.black87),
+        ),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      initialRoute: SplashScreen.routeName,
+      routes: routes,
     );
   }
 }

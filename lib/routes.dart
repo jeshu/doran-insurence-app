@@ -1,4 +1,4 @@
-import 'package:droan_insurence/screens/sign_in/sign_in_screen.dart';
+import 'package:droan_insurence/screens/auth/auth.dart';
 import 'package:droan_insurence/screens/splash/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 

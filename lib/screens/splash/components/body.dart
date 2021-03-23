@@ -1,4 +1,4 @@
-import 'package:droan_insurence/screens/sign_in/sign_in_screen.dart';
+import 'package:droan_insurence/screens/auth/auth.dart';
 import 'package:droan_insurence/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -22,15 +22,13 @@ class _BodyState extends State<Body> {
                   child: Text(
                     "DRONE INSURANCE",
                     textAlign: TextAlign.center,
-                    style:
-                        TextStyle(fontSize: 60, color: Colors.lightBlueAccent),
+                    style: Theme.of(context).textTheme.headline2,
                   ),
                 ),
               ),
               ElevatedButton(
                   child: Text(
                     "Sign In",
-                    style: TextStyle(fontSize: 20, letterSpacing: 1.2),
                   ),
                   autofocus: true,
                   onPressed: () {

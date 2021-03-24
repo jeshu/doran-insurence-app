@@ -1,7 +1,10 @@
 import 'package:droan_insurence/constants.dart';
+import 'package:droan_insurence/screens/auth/components/sign_up_form.dart';
 import './sign_in_form.dart';
 import 'package:droan_insurence/size_config.dart';
 import 'package:flutter/material.dart';
+
+enum AUTH_SCREEN { SIGN_IN, SIGN_UP }
 
 class Body extends StatefulWidget {
   @override
@@ -9,6 +12,8 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  AUTH_SCREEN currentView = AUTH_SCREEN.SIGN_UP;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,9 +49,66 @@ class _BodyState extends State<Body> {
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                   color: Theme.of(context).secondaryHeaderColor),
               child: Expanded(
-                child: SignInForm(),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        AuthTab(
+                          label: 'Sign In',
+                          isActive: currentView == AUTH_SCREEN.SIGN_IN,
+                          onPressed: () {
+                            setState(() {
+                              currentView = AUTH_SCREEN.SIGN_IN;
+                            });
+                          },
+                        ),
+                        Text(
+                          "|",
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
+                        AuthTab(
+                          label: 'Sign Up',
+                          isActive: currentView == AUTH_SCREEN.SIGN_UP,
+                          onPressed: () {
+                            setState(() {
+                              currentView = AUTH_SCREEN.SIGN_UP;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                    currentView == AUTH_SCREEN.SIGN_UP
+                        ? SignUpForm()
+                        : SignInForm(),
+                  ],
+                ),
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AuthTab extends StatelessWidget {
+  const AuthTab({this.isActive, this.label, this.onPressed});
+  final bool isActive;
+  final String label;
+  final Function onPressed;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Column(
+        children: [
+          Text(
+            label,
+            style: Theme.of(context).textTheme.headline5.copyWith(
+                color: isActive
+                    ? Theme.of(context).disabledColor
+                    : Theme.of(context).primaryColor),
           ),
         ],
       ),

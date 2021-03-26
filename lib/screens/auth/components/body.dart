@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:droan_insurence/constants.dart';
 import 'package:droan_insurence/screens/auth/components/sign_up_form.dart';
 import './sign_in_form.dart';
@@ -48,41 +50,39 @@ class _BodyState extends State<Body> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                   color: Theme.of(context).secondaryHeaderColor),
-              child: Expanded(
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        AuthTab(
-                          label: 'Sign In',
-                          isActive: currentView == AUTH_SCREEN.SIGN_IN,
-                          onPressed: () {
-                            setState(() {
-                              currentView = AUTH_SCREEN.SIGN_IN;
-                            });
-                          },
-                        ),
-                        Text(
-                          "|",
-                          style: Theme.of(context).textTheme.headline5,
-                        ),
-                        AuthTab(
-                          label: 'Sign Up',
-                          isActive: currentView == AUTH_SCREEN.SIGN_UP,
-                          onPressed: () {
-                            setState(() {
-                              currentView = AUTH_SCREEN.SIGN_UP;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                    currentView == AUTH_SCREEN.SIGN_UP
-                        ? SignUpForm()
-                        : SignInForm(),
-                  ],
-                ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      AuthTab(
+                        label: 'Sign In',
+                        isActive: currentView == AUTH_SCREEN.SIGN_IN,
+                        onPressed: () {
+                          setState(() {
+                            currentView = AUTH_SCREEN.SIGN_IN;
+                          });
+                        },
+                      ),
+                      Text(
+                        "|",
+                        style: Theme.of(context).textTheme.headline5,
+                      ),
+                      AuthTab(
+                        label: 'Sign Up',
+                        isActive: currentView == AUTH_SCREEN.SIGN_UP,
+                        onPressed: () {
+                          setState(() {
+                            currentView = AUTH_SCREEN.SIGN_UP;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  currentView == AUTH_SCREEN.SIGN_UP
+                      ? SignUpForm()
+                      : SignInForm(),
+                ],
               ),
             ),
           ),

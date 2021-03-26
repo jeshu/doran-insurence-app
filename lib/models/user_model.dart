@@ -1,6 +1,6 @@
-import 'dart:html';
-
 import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 
 class User {
   final String id;
@@ -11,22 +11,31 @@ class User {
   User({this.age, this.email, this.id, this.name});
 }
 
-class UserModel {
+class UserModel extends ChangeNotifier {
   User _user;
+  bool _isLoggedIn = false;
 
   User get user {
     return _user;
   }
 
-  Future<User> login(String email, String password) async {
-    User authUser = new User(email: email, name: 'jehsu brij', age: '33');
-    sleep(Duration(milliseconds: 300));
-    return authUser;
+  bool get isLoggedIn {
+    return _isLoggedIn;
   }
 
-  Future<User> signup(String email, String password) async {
+  void login(String email, String password) async {
     User authUser = new User(email: email, name: 'jehsu brij', age: '33');
     sleep(Duration(milliseconds: 300));
-    return authUser;
+    _user = authUser;
+    _isLoggedIn = true;
+    notifyListeners();
+  }
+
+  void signup(String email, String password) async {
+    User authUser = new User(email: email, name: 'jehsu brij', age: '33');
+    sleep(Duration(milliseconds: 300));
+    _user = authUser;
+    _isLoggedIn = true;
+    notifyListeners();
   }
 }

@@ -1,11 +1,18 @@
 import 'package:droan_insurence/constants.dart';
+import 'package:droan_insurence/models/user_model.dart';
 import 'package:droan_insurence/routes.dart';
 import 'package:droan_insurence/screens/splash/splash_screen.dart';
 import 'package:droan_insurence/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(DroanInsurenceApp());
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (create) => UserModel())],
+      child: DroanInsurenceApp(),
+    ),
+  );
 }
 
 class DroanInsurenceApp extends StatelessWidget {

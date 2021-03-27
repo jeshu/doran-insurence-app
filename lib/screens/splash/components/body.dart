@@ -1,6 +1,9 @@
+import 'package:droan_insurence/models/user_model.dart';
 import 'package:droan_insurence/screens/auth/auth.dart';
+import 'package:droan_insurence/screens/customers/customers_list.dart';
 import 'package:droan_insurence/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -10,6 +13,10 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
+    bool isLoggedIn = Provider.of<UserModel>(context).isLoggedIn;
+    if (isLoggedIn) {
+      Navigator.pushNamed(context, CustomerList.routeName);
+    }
     return SafeArea(
       child: Center(
         child: Container(
@@ -26,14 +33,24 @@ class _BodyState extends State<Body> {
                   ),
                 ),
               ),
-              ElevatedButton(
-                  child: Text(
-                    "Sign In",
-                  ),
-                  autofocus: true,
-                  onPressed: () {
-                    Navigator.pushNamed(context, SignInScreen.routeName);
-                  })
+              if (isLoggedIn == true)
+                ElevatedButton(
+                    child: Text(
+                      "Continue",
+                    ),
+                    autofocus: true,
+                    onPressed: () {
+                      Navigator.pushNamed(context, CustomerList.routeName);
+                    })
+              else
+                ElevatedButton(
+                    child: Text(
+                      "Sign In",
+                    ),
+                    autofocus: true,
+                    onPressed: () {
+                      Navigator.pushNamed(context, SignInScreen.routeName);
+                    })
             ],
           ),
         ),

@@ -12,7 +12,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  AUTH_SCREEN currentView = AUTH_SCREEN.SIGN_UP;
+  AUTH_SCREEN currentView = AUTH_SCREEN.SIGN_IN;
 
   @override
   Widget build(BuildContext context) {

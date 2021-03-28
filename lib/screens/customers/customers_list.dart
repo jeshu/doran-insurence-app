@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import './components/body.dart';
+import 'package:droan_insurence/screens/register_customers/register_customers.dart';
 import 'package:flutter/material.dart';
 
 class CustomerList extends StatelessWidget {
@@ -7,8 +8,15 @@ class CustomerList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          child: Text('Customer list....'),
+        body: Body(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            print('hello....');
+            Navigator.pushNamed(context, RegisterCustomer.routeName);
+          },
+          child: Icon(
+            Icons.add,
+          ),
         ),
       ),
     );

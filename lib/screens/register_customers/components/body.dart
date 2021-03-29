@@ -1,3 +1,4 @@
+import 'package:droan_insurence/screens/register_customers/components/personal_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +13,13 @@ class _BodyState extends State<Body> {
   int _currentStep = 0;
 
   void tapped(step) {
+    if (step >= 3) {
+      return;
+    }
     setState(() {
-      _currentStep = step;
+      if (step >= 0) {
+        _currentStep = step;
+      }
     });
   }
 
@@ -24,10 +30,29 @@ class _BodyState extends State<Body> {
         child: Stepper(
           type: StepperType.horizontal,
           currentStep: _currentStep,
+          controlsBuilder: (BuildContext context,
+              {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
+            return Row(
+              children: <Widget>[
+                TextButton(
+                  onPressed: onStepContinue,
+                  child: const Text('NEXT'),
+                ),
+                if (_currentStep != 0)
+                  TextButton(
+                    onPressed: onStepCancel,
+                    child: const Text('BACK'),
+                  ),
+              ],
+            );
+          },
           onStepTapped: (step) => tapped(step),
           onStepContinue: () {
             print('continue is clicked...');
             tapped(_currentStep + 1);
+          },
+          onStepCancel: () {
+            tapped(_currentStep - 1);
           },
           steps: [
             Step(
@@ -45,6 +70,7 @@ class _BodyState extends State<Body> {
                     'Personal Info',
                     style: Theme.of(context).textTheme.headline5,
                   ),
+                  PersonlInfoForm()
                 ],
               ),
             ),

@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:droan_insurence/models/inspection_list.dart';
 import 'package:droan_insurence/models/policy_data.dart';
 import 'package:flutter/foundation.dart';
@@ -10,7 +8,7 @@ class Customer {
   String name;
   String email;
   String gender;
-  String age;
+  DateTime dob;
   // contact data
   String address;
   String mobile;

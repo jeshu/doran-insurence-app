@@ -1,6 +1,14 @@
 # droan_insurence
 
-A new Flutter application.
+Howathow project redone with flutter.
+
+## Features
+
+- Login - User login functionality.
+- Customer registratoin
+- Inspection live page
+- Policy generation
+- Policy claims settelment.
 
 ## Getting Started
 

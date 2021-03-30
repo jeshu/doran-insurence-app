@@ -1,20 +1,29 @@
+import 'package:droan_insurence/models/user_model.dart';
 import 'package:droan_insurence/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class SignInForm extends StatelessWidget {
-  const SignInForm({
-    Key key,
-  }) : super(key: key);
+class SignInForm extends StatefulWidget {
+  @override
+  _SignInFormState createState() => _SignInFormState();
+}
+
+class _SignInFormState extends State<SignInForm> {
+  String email;
+  String password;
 
   @override
   Widget build(BuildContext context) {
+    Function login = Provider.of<UserModel>(context).login;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         SizedBox(height: SizeConfig.screenHeight * 0.06),
         TextField(
-          onChanged: (value) {},
+          onChanged: (value) {
+            email = email;
+          },
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
             prefixIcon: Icon(
@@ -36,10 +45,16 @@ class SignInForm extends StatelessWidget {
             ),
             hintText: 'Password',
           ),
-          onChanged: (value) {},
+          onChanged: (value) {
+            password = password;
+          },
         ),
         SizedBox(height: SizeConfig.screenHeight * 0.04),
-        ElevatedButton(child: Text('Login'), onPressed: () {}),
+        ElevatedButton(
+            child: Text('Login'),
+            onPressed: () {
+              login(email, password);
+            }),
       ],
     );
   }

@@ -1,3 +1,4 @@
+import 'package:droan_insurence/screens/register_customers/components/location_info.dart';
 import 'package:droan_insurence/screens/register_customers/components/personal_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class _BodyState extends State<Body> {
     return SafeArea(
       child: Container(
         child: Stepper(
-          type: StepperType.horizontal,
+          type: StepperType.vertical,
           currentStep: _currentStep,
           controlsBuilder: (BuildContext context,
               {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
@@ -88,7 +89,8 @@ class _BodyState extends State<Body> {
                   Text(
                     'Location Info',
                     style: Theme.of(context).textTheme.headline5,
-                  )
+                  ),
+                  LocationInfo(),
                 ],
               ),
             ),

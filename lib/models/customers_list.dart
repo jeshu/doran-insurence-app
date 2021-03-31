@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:droan_insurence/models/inspection_list.dart';
 import 'package:droan_insurence/models/policy_data.dart';
 import 'package:flutter/foundation.dart';
@@ -8,13 +10,13 @@ class Customer {
   String name;
   String email;
   String gender;
-  DateTime dob;
+  String age;
+  String experience;
   // contact data
   String address;
   String mobile;
   String city;
   String pincode;
-  String experience;
   // policies data
   List<Policy> _policies = [];
   // all inspection data

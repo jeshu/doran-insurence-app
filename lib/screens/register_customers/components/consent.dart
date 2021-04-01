@@ -1,16 +1,16 @@
 import 'package:droan_insurence/size_config.dart';
 import 'package:flutter/material.dart';
 
-class LocationInfo extends StatefulWidget {
-  LocationInfo({Key key}) : super(key: key);
+class Consent extends StatefulWidget {
+  Consent({Key key}) : super(key: key);
 
   @override
-  _LocationInfoState createState() => _LocationInfoState();
+  _ConsentState createState() => _ConsentState();
 }
 
-class _LocationInfoState extends State<LocationInfo> {
-  bool consent;
-  bool newsletter;
+class _ConsentState extends State<Consent> {
+  bool consent = false;
+  bool newsletter = true;
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +37,9 @@ class _LocationInfoState extends State<LocationInfo> {
             Row(
               children: [
                 Checkbox(
-                    value: consent,
+                    value: newsletter,
                     onChanged: (value) {
-                      consent = value;
+                      newsletter = value;
                     }),
                 Text(
                   'Sign me up for the newsletter.',

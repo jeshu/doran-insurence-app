@@ -1,4 +1,3 @@
-import 'package:droan_insurence/enums.dart';
 import 'package:droan_insurence/size_config.dart';
 import 'package:flutter/material.dart';
 

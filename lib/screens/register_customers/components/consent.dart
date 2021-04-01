@@ -9,10 +9,8 @@ class LocationInfo extends StatefulWidget {
 }
 
 class _LocationInfoState extends State<LocationInfo> {
-  String address;
-  String mobile;
-  String city;
-  String pincode;
+  bool consent;
+  bool newsletter;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +20,32 @@ class _LocationInfoState extends State<LocationInfo> {
           children: <Widget>[
             SizedBox(
               height: getProportionateScreenHeight(40.0),
+            ),
+            Row(
+              children: [
+                Checkbox(
+                    value: consent,
+                    onChanged: (value) {
+                      consent = value;
+                    }),
+                Text(
+                  'I agree to the terms and conditions.',
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Checkbox(
+                    value: consent,
+                    onChanged: (value) {
+                      consent = value;
+                    }),
+                Text(
+                  'Sign me up for the newsletter.',
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+              ],
             ),
           ],
         ),

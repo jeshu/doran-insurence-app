@@ -1,3 +1,4 @@
+import 'package:droan_insurence/screens/register_customers/components/consent.dart';
 import 'package:droan_insurence/screens/register_customers/components/location_info.dart';
 import 'package:droan_insurence/screens/register_customers/components/personal_info.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,7 +12,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  int _currentStep = 0;
+  int _currentStep = 2;
 
   void tapped(step) {
     if (step >= 3) {
@@ -22,6 +23,10 @@ class _BodyState extends State<Body> {
         _currentStep = step;
       }
     });
+  }
+
+  String getNextLabel() {
+    return _currentStep == 2 ? 'REGISTER' : 'NEXT';
   }
 
   @override
@@ -37,9 +42,11 @@ class _BodyState extends State<Body> {
               children: <Widget>[
                 TextButton(
                   onPressed: onStepContinue,
-                  child: const Text('NEXT'),
+                  child: Text(
+                    getNextLabel(),
+                  ),
                 ),
-                if (_currentStep != 0)
+                if (_currentStep != 0 && _currentStep != 2)
                   TextButton(
                     onPressed: onStepCancel,
                     child: const Text('BACK'),
@@ -106,9 +113,10 @@ class _BodyState extends State<Body> {
               content: Column(
                 children: [
                   Text(
-                    'Location Info',
+                    'Consent',
                     style: Theme.of(context).textTheme.headline5,
-                  )
+                  ),
+                  Consent(),
                 ],
               ),
             ),

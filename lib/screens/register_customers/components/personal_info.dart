@@ -35,7 +35,7 @@ class _PersonlInfoFormState extends State<PersonlInfoForm> {
             },
             enableSuggestions: true,
             decoration:
-                InputDecoration(labelText: 'NAME', hintText: 'Enter your name'),
+                InputDecoration(labelText: 'NAME', hintText: 'your_name'),
           ),
           SizedBox(
             height: getProportionateScreenHeight(20.0),
@@ -47,7 +47,7 @@ class _PersonlInfoFormState extends State<PersonlInfoForm> {
             enableSuggestions: true,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
-                labelText: 'EMAIL', hintText: 'Enter your email'),
+                labelText: 'EMAIL', hintText: 'your_mail@example.com'),
           ),
           SizedBox(
             height: getProportionateScreenHeight(20.0),
@@ -58,8 +58,7 @@ class _PersonlInfoFormState extends State<PersonlInfoForm> {
             },
             keyboardType: TextInputType.number,
             enableSuggestions: true,
-            decoration:
-                InputDecoration(labelText: 'AGE', hintText: 'Enter your age'),
+            decoration: InputDecoration(labelText: 'AGE', hintText: '28 years'),
           ),
           SizedBox(
             height: getProportionateScreenHeight(20.0),

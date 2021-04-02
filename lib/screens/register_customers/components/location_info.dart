@@ -30,8 +30,7 @@ class _LocationInfoState extends State<LocationInfo> {
               },
               enableSuggestions: true,
               decoration: InputDecoration(
-                  labelText: 'MOBILE NO.',
-                  hintText: 'Enter your mobile number'),
+                  labelText: 'MOBILE NO.', hintText: 'xxx-xxx-xxxx'),
             ),
             SizedBox(
               height: getProportionateScreenHeight(40.0),
@@ -42,7 +41,7 @@ class _LocationInfoState extends State<LocationInfo> {
               },
               enableSuggestions: true,
               decoration: InputDecoration(
-                  labelText: 'ADDRESS', hintText: 'Enter your address'),
+                  labelText: 'ADDRESS', hintText: 'your_address'),
             ),
             SizedBox(
               height: getProportionateScreenHeight(40.0),
@@ -53,8 +52,8 @@ class _LocationInfoState extends State<LocationInfo> {
                 pincode = value;
               },
               enableSuggestions: true,
-              decoration: InputDecoration(
-                  labelText: 'PINCODE', hintText: 'Enter your Pincode'),
+              decoration:
+                  InputDecoration(labelText: 'PINCODE', hintText: 'xxxxxx'),
             ),
             SizedBox(
               height: getProportionateScreenHeight(40.0),
@@ -64,8 +63,8 @@ class _LocationInfoState extends State<LocationInfo> {
                 city = value;
               },
               enableSuggestions: true,
-              decoration: InputDecoration(
-                  labelText: 'City', hintText: 'Enter your city'),
+              decoration:
+                  InputDecoration(labelText: 'City', hintText: 'your_city'),
             ),
           ],
         ),

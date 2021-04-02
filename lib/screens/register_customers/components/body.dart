@@ -102,20 +102,21 @@ class _BodyState extends State<Body> {
               ),
             ),
             Step(
-              title: Column(
+              title: Row(
                 children: <Widget>[
                   Icon(
                     CupertinoIcons.bell,
                     color: Theme.of(context).primaryColor,
                   ),
-                ],
-              ),
-              content: Column(
-                children: [
+                  Spacer(),
                   Text(
                     'Consent',
                     style: Theme.of(context).textTheme.headline5,
                   ),
+                ],
+              ),
+              content: Column(
+                children: [
                   Consent(),
                 ],
               ),

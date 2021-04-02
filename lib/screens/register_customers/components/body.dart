@@ -57,39 +57,39 @@ class _BodyState extends State<Body> {
           },
           steps: [
             Step(
-              title: Column(
+              title: Row(
                 children: <Widget>[
                   Icon(
                     Icons.person_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                ],
-              ),
-              content: Column(
-                children: [
+                  Spacer(),
                   Text(
                     'Personal Info',
                     style: Theme.of(context).textTheme.headline5,
                   ),
-                  PersonlInfoForm()
                 ],
+              ),
+              content: Column(
+                children: [PersonlInfoForm()],
               ),
             ),
             Step(
-              title: Column(
+              title: Row(
                 children: <Widget>[
                   Icon(
                     Icons.location_on_outlined,
                     color: Theme.of(context).primaryColor,
                   ),
-                ],
-              ),
-              content: Column(
-                children: [
+                  Spacer(),
                   Text(
                     'Location Info',
                     style: Theme.of(context).textTheme.headline5,
                   ),
+                ],
+              ),
+              content: Column(
+                children: [
                   LocationInfo(),
                 ],
               ),

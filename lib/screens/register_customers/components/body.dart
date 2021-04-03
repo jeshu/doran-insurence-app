@@ -12,7 +12,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  int _currentStep = 2;
+  int _currentStep = 0;
 
   void tapped(step) {
     if (step >= 3) {
@@ -32,7 +32,8 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
+      child: Form(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Stepper(
           type: StepperType.vertical,
           currentStep: _currentStep,
@@ -77,9 +78,7 @@ class _BodyState extends State<Body> {
                   ),
                 ],
               ),
-              content: Column(
-                children: [PersonlInfoForm()],
-              ),
+              content: PersonlInfoForm(),
             ),
             Step(
               title: Row(
@@ -95,11 +94,7 @@ class _BodyState extends State<Body> {
                   ),
                 ],
               ),
-              content: Column(
-                children: [
-                  LocationInfo(),
-                ],
-              ),
+              content: LocationInfo(),
             ),
             Step(
               title: Row(
@@ -115,11 +110,7 @@ class _BodyState extends State<Body> {
                   ),
                 ],
               ),
-              content: Column(
-                children: [
-                  Consent(),
-                ],
-              ),
+              content: Consent(),
             ),
           ],
         ),
